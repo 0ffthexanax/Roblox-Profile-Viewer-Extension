@@ -1,30 +1,122 @@
 body {
-  background-color: #5A5A5A;
-  color: white;
-  height: 550px;
-  width: 750px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  overflow-wrap: break-word;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 650px;
+  width: 450px;
+  overflow: hidden;
 }
 
 .content {
-  color: white;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  width: 95%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
 }
 
 .title {
+  font-size: 1.7rem;
+  margin-bottom: 5px;
   color: #fff;
-  text-align: center;
+}
+
+.image-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin: 15px 0;
+}
+
+.image-button img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.image-button:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #fff;
+}
+
+.info-box {
+  margin-top: 15px;
 }
 
 .box-text {
-  color: white;
-  margin-left: 5px;
-  font-size: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 0.9rem;
+  color: #fff;
+  text-align: left;
+  word-wrap: break-word;
+  overflow: hidden;
+  white-space: normal;
 }
 
-#avatarImage {
-  position: fixed;
-  width: 160px;
-  margin-left: 570px;
-  margin-top: -50px;
+summary {
+  font-size: 0.9rem;
+  color: #fff;
+  outline: none; 
+  cursor: pointer;
+}
+
+summary:hover {
+  color: #ffeb3b;
+}
+
+.copy-button {
+  background: linear-gradient(90deg, #6a0dad, #1e90ff);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.copy-button:hover {
+  background: linear-gradient(90deg, #8033cc, #318eff);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.copy-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#cookieValueContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.cookie-value {
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: #fff;
+  word-wrap: break-word;
+  max-height: 60px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  cursor: text;
 }

@@ -11,17 +11,30 @@
 <body>
   <div class="content" id="content">
     <h1 class="title">Roblox Profile Viewer</h1>
-    <img id="avatarImage" alt="User Avatar" />
-    <div class="box-text" id="id"><b>ID:</b> Loading...</div>
-    <div class="box-text" id="username"><b>Username:</b> Loading...</div>
-    <div class="box-text" id="display-name"><b>Display Name:</b> Loading...</div>
-    <div class="box-text" id="robux"><b>Robux:</b> Loading...</div>
-    <div class="box-text" id="premium"><b>Premium Status:</b> Loading...</div>
-    <div class="box-text" id="friends"><b>Friends:</b> Loading...</div>
-    <div class="box-text" id="followers"><b>Followers:</b> Loading...</div>
-    <div class="box-text" id="cookie"><b>.ROBLOSECURITY:</b> Loading...</div>
-  </div>
-  <script src="scripts/main.js"></script>
-</body>
 
+    <button class="image-button">
+      <img id="avatarImage" alt="Button Image" />
+    </button>
+
+    <div class="info-box">
+      <div class="box-text" id="id"><b>ID:</b> Loading...</div>
+      <div class="box-text" id="username"><b>Username:</b> Loading...</div>
+      <div class="box-text" id="display-name"><b>Display Name:</b> Loading...</div>
+      <div class="box-text" id="robux"><b>Robux:</b> Loading...</div>
+      <div class="box-text" id="premium"><b>Premium Status:</b> Loading...</div>
+      <div class="box-text" id="friends"><b>Friends:</b> Loading...</div>
+      <div class="box-text" id="followers"><b>Followers:</b> Loading...</div>
+      <div class="box-text">
+        <details id="cookieDetails">
+          <summary><b>Click To View Cookie</b></summary>
+          <div id="cookieValueContainer">
+            <div id="cookieValue" class="cookie-value">Loading...</div>
+            <button id="copyButton" class="copy-button">Copy</button>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="scripts/main.js"></script>
 </html>
