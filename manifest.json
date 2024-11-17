@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Roblox Profile Viewer",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "View your Roblox account information.",
   "permissions": [
     "cookies"
@@ -14,11 +14,12 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icons/roblox.png",
-      "32": "icons/roblox.png",
-      "48": "icons/roblox.png",
-      "128": "icons/roblox.png"
-    }
+    "default_icon": "icons/roblox.png"
+  },
+  "icons": {
+    "16": "icons/roblox.png",
+    "32": "icons/roblox.png",
+    "48": "icons/roblox.png",
+    "128": "icons/roblox.png"
   }
 }

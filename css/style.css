@@ -1,10 +1,10 @@
 body {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(135deg, black, blue, black);
   color: #f9f9f9;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  display: flex;
+  /* display: no; */
   justify-content: center;
   align-items: center;
   height: 650px;
@@ -24,8 +24,8 @@ body {
 
 .title {
   font-size: 1.7rem;
-  margin-bottom: 5px;
   color: #fff;
+  margin-right: 10px;
 }
 
 .image-button {
@@ -34,6 +34,7 @@ body {
   cursor: pointer;
   transition: transform 0.2s ease;
   margin: 15px 0;
+  margin-right: 10px;
 }
 
 .image-button img {
@@ -58,6 +59,7 @@ body {
   border-radius: 10px;
   padding: 10px;
   margin: 10px 0;
+  margin-right: 16px;
   font-size: 0.9rem;
   color: #fff;
   text-align: left;
@@ -69,7 +71,7 @@ body {
 summary {
   font-size: 0.9rem;
   color: #fff;
-  outline: none; 
+  outline: none;
   cursor: pointer;
 }
 
@@ -78,7 +80,7 @@ summary:hover {
 }
 
 .copy-button {
-  background: linear-gradient(90deg, #6a0dad, #1e90ff);
+  background: linear-gradient(110deg, black, blue, black);
   color: white;
   border: none;
   border-radius: 20px;
@@ -91,9 +93,9 @@ summary:hover {
 }
 
 .copy-button:hover {
-  background: linear-gradient(90deg, #8033cc, #318eff);
+  background: linear-gradient(110deg, black, blue, black);
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 12px rgba(255, 255, 255, 0.248);
 }
 
 .copy-button:active {
@@ -119,4 +121,29 @@ summary:hover {
   border-radius: 5px;
   padding: 10px;
   cursor: text;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  padding: 10px;
+  background-color: #f1f1f1;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer a {
+  color: #0073e6;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #005bb5;
+}
+
+.footer p {
+  margin: 0;
 }

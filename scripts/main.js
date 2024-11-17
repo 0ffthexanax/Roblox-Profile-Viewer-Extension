@@ -21,6 +21,7 @@ async function fetchRobloxData() {
       Cookie: `.ROBLOSECURITY=${robloxCookie}`,
     };
 
+    // Username/Display Name
     const userInfoResponse = await fetch("https://users.roblox.com/v1/users/authenticated", {
       credentials: "include",
       headers,
@@ -28,6 +29,7 @@ async function fetchRobloxData() {
     if (!userInfoResponse.ok) throw new Error("Failed to fetch user info.");
     const userInfo = await userInfoResponse.json();
 
+    // Robux Amount
     const robuxResponse = await fetch(`https://economy.roblox.com/v1/users/${userInfo.id}/currency`, {
       credentials: "include",
       headers,
@@ -37,12 +39,14 @@ async function fetchRobloxData() {
 
     const formattedRobux = robuxInfo.robux.toLocaleString("en-US");
 
+    // Premium
     const premiumResponse = await fetch("https://premiumfeatures.roblox.com/v1/users/current", {
       credentials: "include",
       headers,
     });
     const premiumInfo = premiumResponse.ok ? await premiumResponse.json() : { isPremium: false };
 
+    // Friends
     const friendsResponse = await fetch(`https://friends.roblox.com/v1/users/${userInfo.id}/friends/count`, {
       credentials: "include",
       headers,
@@ -50,6 +54,7 @@ async function fetchRobloxData() {
     if (!friendsResponse.ok) throw new Error("Failed to fetch friends info.");
     const friendsInfo = await friendsResponse.json();
 
+    // Followers
     const followersResponse = await fetch(`https://friends.roblox.com/v1/users/${userInfo.id}/followers/count`, {
       credentials: "include",
       headers,
@@ -57,6 +62,26 @@ async function fetchRobloxData() {
     if (!followersResponse.ok) throw new Error("Failed to fetch followers info.");
     const followersInfo = await followersResponse.json();
 
+    // Followings
+    const followingsResponse = await fetch(`https://friends.roblox.com/v1/users/${userInfo.id}/followings/count`, {
+      credentials: "include",
+      headers,
+    });
+    if (!followersResponse.ok) throw new Error("Failed to fetch followings info.");
+    const followingsInfo = await followingsResponse.json();
+
+    // Rap
+    const collectiblesResponse = await fetch(
+      `https://inventory.roblox.com/v1/users/${userInfo.id}/assets/collectibles?sortOrder=Asc&limit=100`,
+      { credentials: "include", headers }
+    );
+
+    if (!collectiblesResponse.ok) throw new Error("Failed to fetch RAP info.");
+    const collectiblesData = await collectiblesResponse.json();
+
+    const totalRAP = collectiblesData.data.reduce((total, item) => total + item.recentAveragePrice, 0);
+
+    // Avatar
     const avatarResponse = await fetch(
       `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userInfo.id}&size=150x150&format=Png&isCircular=false`,
       {
@@ -81,9 +106,11 @@ async function fetchRobloxData() {
     document.getElementById("id").innerHTML = `<strong>ID:</strong> ${userInfo.id}`;
     document.getElementById("display-name").innerHTML = `<strong>Display Name:</strong> ${userInfo.displayName}`;
     document.getElementById("robux").innerHTML = `<strong>Robux:</strong> ${formattedRobux}`;
+    document.getElementById("rap").innerHTML = `<strong>RAP:</strong> ${totalRAP.toLocaleString("en-US")}`;
     document.getElementById("premium").innerHTML = `<strong>Premium Status:</strong> ${premiumInfo.isPremium ? "Yes" : "No"}`;
     document.getElementById("friends").innerHTML = `<strong>Friends:</strong> ${friendsInfo.count}`;
     document.getElementById("followers").innerHTML = `<strong>Followers:</strong> ${followersInfo.count}`;
+    document.getElementById("followings").innerHTML = `<strong>Following:</strong> ${followingsInfo.count}`;
 
     const cookieValueElement = document.getElementById("cookieValue");
     const cookieDetails = document.getElementById("cookieDetails");
@@ -101,7 +128,7 @@ async function fetchRobloxData() {
 
     copyButton.addEventListener("click", () => {
       navigator.clipboard.writeText(robloxCookie).then(() => {
-        alert("Cookie copied to clipboard!");
+        alert("Cookie copied to clipboard!\n\nNote: Always exercise caution when sharing or using your .ROBLOSECURITY cookie, as it grants access to your Roblox account");
       }).catch((err) => {
         console.error("Failed to copy the cookie:", err);
         alert("Failed to copy the cookie.");
