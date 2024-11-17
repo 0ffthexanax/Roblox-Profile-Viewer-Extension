@@ -30,8 +30,8 @@ This project is open-source, allowing users to inspect the code and verify that 
 
 1. Download and unzip the folder.
 2. Navigate to the extensions path in your browser.
-3. Ensure that `Developer Mode` is enabled.
-4. Click the "Load unpacked" button and select the unzipped folder.
+3. Ensure that **Developer Mode** is enabled.
+4. Click the **Load unpacked** button and select the unzipped folder.
 5. Enable the extension, and you're ready to go!
 
 > **Note:** Always exercise caution when sharing or using your `.ROBLOSECURITY` cookie, as it grants access to your Roblox account. Use this tool at your own discretion.
