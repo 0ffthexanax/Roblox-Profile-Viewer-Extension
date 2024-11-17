@@ -21,6 +21,25 @@ The profile viewer provides the following information:
 
 This project is open-source, allowing users to inspect the code and verify that it contains no harmful components. The `.ROBLOSECURITY` cookie is used exclusively to fetch data from Roblox APIs and is never logged or stored.
 
+## Updates 🆕
+
+<details>
+<summary>v1.0.1</summary>
+<ul>
+<li> Fixed the ui</li>
+</ul>
+</details>
+
+<details>
+<summary>v1.0.2</summary>
+<ul>
+<li> Changed the ui color</li>
+</ul>
+<ul>
+<li> Added RAP & following count</li>
+</ul>
+</details>
+
 ## Future Plans 🚀
 
 - Improve the user interface for a more streamlined experience.
