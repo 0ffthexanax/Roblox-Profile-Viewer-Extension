@@ -24,21 +24,27 @@ This project is open-source, allowing users to inspect the code and verify that 
 ## Updates 🆕
 
 <details>
-<summary>v1.0.1</summary>
-<ul>
-<li> Fixed the ui</li>
-</ul>
+  <summary>v1.0.1</summary>
+  <ul>
+    <li>Fixed the user interface (UI).</li>
+  </ul>
 </details>
 
 <details>
-<summary>v1.0.2</summary>
-<ul>
-<li> Changed the ui color</li>
-</ul>
-<ul>
-<li> Added RAP & following count</li>
-</ul>
+  <summary>v1.0.2</summary>
+  <ul>
+    <li>Updated the UI color scheme.</li>
+    <li>Added RAP and following count features.</li>
+  </ul>
 </details>
+
+<details>
+  <summary>v1.0.3</summary>
+  <ul>
+    <li>Introduced a user search feature.</li>
+  </ul>
+</details>
+
 
 ## Future Plans 🚀
 

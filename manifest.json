@@ -1,10 +1,11 @@
 {
   "manifest_version": 3,
   "name": "Roblox Profile Viewer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "View your Roblox account information.",
   "permissions": [
-    "cookies"
+    "cookies",
+    "notifications"
   ],
   "host_permissions": [
     "https://*.roblox.com/"
@@ -16,6 +17,7 @@
     "default_popup": "popup.html",
     "default_icon": "icons/roblox.png"
   },
+  "options_page": "pages/search.html",
   "icons": {
     "16": "icons/roblox.png",
     "32": "icons/roblox.png",

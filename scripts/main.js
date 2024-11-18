@@ -21,7 +21,6 @@ async function fetchRobloxData() {
       Cookie: `.ROBLOSECURITY=${robloxCookie}`,
     };
 
-    // Username/Display Name
     const userInfoResponse = await fetch("https://users.roblox.com/v1/users/authenticated", {
       credentials: "include",
       headers,
@@ -29,59 +28,6 @@ async function fetchRobloxData() {
     if (!userInfoResponse.ok) throw new Error("Failed to fetch user info.");
     const userInfo = await userInfoResponse.json();
 
-    // Robux Amount
-    const robuxResponse = await fetch(`https://economy.roblox.com/v1/users/${userInfo.id}/currency`, {
-      credentials: "include",
-      headers,
-    });
-    if (!robuxResponse.ok) throw new Error("Failed to fetch Robux info.");
-    const robuxInfo = await robuxResponse.json();
-
-    const formattedRobux = robuxInfo.robux.toLocaleString("en-US");
-
-    // Premium
-    const premiumResponse = await fetch("https://premiumfeatures.roblox.com/v1/users/current", {
-      credentials: "include",
-      headers,
-    });
-    const premiumInfo = premiumResponse.ok ? await premiumResponse.json() : { isPremium: false };
-
-    // Friends
-    const friendsResponse = await fetch(`https://friends.roblox.com/v1/users/${userInfo.id}/friends/count`, {
-      credentials: "include",
-      headers,
-    });
-    if (!friendsResponse.ok) throw new Error("Failed to fetch friends info.");
-    const friendsInfo = await friendsResponse.json();
-
-    // Followers
-    const followersResponse = await fetch(`https://friends.roblox.com/v1/users/${userInfo.id}/followers/count`, {
-      credentials: "include",
-      headers,
-    });
-    if (!followersResponse.ok) throw new Error("Failed to fetch followers info.");
-    const followersInfo = await followersResponse.json();
-
-    // Followings
-    const followingsResponse = await fetch(`https://friends.roblox.com/v1/users/${userInfo.id}/followings/count`, {
-      credentials: "include",
-      headers,
-    });
-    if (!followersResponse.ok) throw new Error("Failed to fetch followings info.");
-    const followingsInfo = await followingsResponse.json();
-
-    // Rap
-    const collectiblesResponse = await fetch(
-      `https://inventory.roblox.com/v1/users/${userInfo.id}/assets/collectibles?sortOrder=Asc&limit=100`,
-      { credentials: "include", headers }
-    );
-
-    if (!collectiblesResponse.ok) throw new Error("Failed to fetch RAP info.");
-    const collectiblesData = await collectiblesResponse.json();
-
-    const totalRAP = collectiblesData.data.reduce((total, item) => total + item.recentAveragePrice, 0);
-
-    // Avatar
     const avatarResponse = await fetch(
       `https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds=${userInfo.id}&size=150x150&format=Png&isCircular=false`,
       {
@@ -102,15 +48,86 @@ async function fetchRobloxData() {
       chrome.tabs.create({ url: link });
     });
 
-    document.getElementById("username").innerHTML = `<strong>Username:</strong> ${userInfo.name}`;
+    const [
+      accountAgeResponse,
+      friendsResponse,
+      followersResponse,
+      followingsResponse,
+      premiumResponse,
+      robuxResponse,
+      collectiblesResponse,
+    ] = await Promise.all([
+      fetch(`https://users.roblox.com/v1/users/${userInfo.id}`, {
+        credentials: "include",
+        headers,
+      }),
+      fetch(`https://friends.roblox.com/v1/users/${userInfo.id}/friends/count`, {
+        credentials: "include",
+        headers,
+      }),
+      fetch(`https://friends.roblox.com/v1/users/${userInfo.id}/followers/count`, {
+        credentials: "include",
+        headers,
+      }),
+      fetch(`https://friends.roblox.com/v1/users/${userInfo.id}/followings/count`, {
+        credentials: "include",
+        headers,
+      }),
+      fetch("https://premiumfeatures.roblox.com/v1/users/current", {
+        credentials: "include",
+        headers,
+      }),
+      fetch(`https://economy.roblox.com/v1/users/${userInfo.id}/currency`, {
+        credentials: "include",
+        headers,
+      }),
+      fetch(
+        `https://inventory.roblox.com/v1/users/${userInfo.id}/assets/collectibles?sortOrder=Asc&limit=100`,
+        { credentials: "include", headers }
+      ),
+    ]);
+    
+    const [
+      accountInfo,
+      friendsInfo,
+      followersInfo,
+      followingsInfo,
+      premiumInfo,
+      robuxInfo,
+      collectiblesData,
+    ] = await Promise.all([
+      accountAgeResponse.json(),
+      friendsResponse.json(),
+      followersResponse.json(),
+      followingsResponse.json(),
+      premiumResponse.ok ? await premiumResponse.json() : { isPremium: false },
+      robuxResponse.json(),
+      collectiblesResponse.json(),
+    ]);
+    
+    const totalRAP = collectiblesData.data.reduce(
+      (total, item) => total + item.recentAveragePrice,
+      0
+    );
+    
+    const accountCreationDate = new Date(accountInfo.created);
+    const formattedCreationDate = accountCreationDate.toLocaleDateString("en-US");
+    const currentDate = new Date();
+    const accountAge = currentDate.getFullYear() - accountCreationDate.getFullYear();
+    
+    const formattedRobux = robuxInfo.robux.toLocaleString("en-US");
+    
     document.getElementById("id").innerHTML = `<strong>ID:</strong> ${userInfo.id}`;
+    document.getElementById("username").innerHTML = `<strong>Username:</strong> ${userInfo.name}`;
     document.getElementById("display-name").innerHTML = `<strong>Display Name:</strong> ${userInfo.displayName}`;
-    document.getElementById("robux").innerHTML = `<strong>Robux:</strong> ${formattedRobux}`;
-    document.getElementById("rap").innerHTML = `<strong>RAP:</strong> ${totalRAP.toLocaleString("en-US")}`;
-    document.getElementById("premium").innerHTML = `<strong>Premium Status:</strong> ${premiumInfo.isPremium ? "Yes" : "No"}`;
+    document.getElementById("account-age").innerHTML = `<strong>Account Age:</strong> ${accountAge} years | ${formattedCreationDate}`;
     document.getElementById("friends").innerHTML = `<strong>Friends:</strong> ${friendsInfo.count}`;
     document.getElementById("followers").innerHTML = `<strong>Followers:</strong> ${followersInfo.count}`;
     document.getElementById("followings").innerHTML = `<strong>Following:</strong> ${followingsInfo.count}`;
+    document.getElementById("premium").innerHTML = `<strong>Premium Status:</strong> ${premiumInfo.isPremium ? "Yes" : "No"}`;
+    document.getElementById("robux").innerHTML = `<strong>Robux:</strong> ${formattedRobux}`;
+    document.getElementById("rap").innerHTML = `<strong>RAP:</strong> ${totalRAP.toLocaleString("en-US")}`;
+    
 
     const cookieValueElement = document.getElementById("cookieValue");
     const cookieDetails = document.getElementById("cookieDetails");
@@ -128,7 +145,9 @@ async function fetchRobloxData() {
 
     copyButton.addEventListener("click", () => {
       navigator.clipboard.writeText(robloxCookie).then(() => {
-        alert("Cookie copied to clipboard!\n\nNote: Always exercise caution when sharing or using your .ROBLOSECURITY cookie, as it grants access to your Roblox account");
+        alert(
+          "Cookie copied to clipboard!\n\nNote: Always exercise caution when sharing or using your .ROBLOSECURITY cookie, as it grants access to your Roblox account"
+        );
       }).catch((err) => {
         console.error("Failed to copy the cookie:", err);
         alert("Failed to copy the cookie.");
@@ -140,6 +159,8 @@ async function fetchRobloxData() {
   }
 }
 
-
-
 fetchRobloxData();
+
+document.getElementById("search-button").addEventListener('click', () => {
+  chrome.tabs.create({ url: chrome.runtime.getURL('./pages/search.html')})
+})

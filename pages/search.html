@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roblox Profile Viewer</title>
+  <link rel="stylesheet" href="../css/search.css">
+</head>
+
+<body>
+  <div class="content" id="content">
+    <h1 class="title">Roblox Profile Viewer</h1>
+
+    <div id="search-container">
+      <select id="search-type">
+        <option value="username">Username</option>
+        <option value="userId">User ID</option>
+      </select>
+      <input type="text" id="search-input" placeholder="Enter Roblox username..." />
+      <button id="search-button">Search</button>
+    </div>
+
+    <button id="image-button" class="image-button">
+      <img id="avatarImage" alt="Button Image" style="visibility: hidden;" />
+    </button>
+
+    <div class="info-box">
+      <div class="box-text" id="id"><b>ID:</b> ???</div>
+      <div class="box-text" id="account-age"><b>Account Age:</b> ???</div>
+      <div class="box-text" id="username"><b>Username:</b> ???</div>
+      <div class="box-text" id="display-name"><b>Display Name:</b> ???</div>
+      <div class="box-text" id="friends"><b>Friends:</b> ???</div>
+      <div class="box-text" id="followers"><b>Followers:</b> ???</div>
+      <div class="box-text" id="followings"><b>Following:</b> ???</div>
+      <div class="box-text" id="rap"><b>RAP:</b> ???</div>
+    </div>
+  </div>
+</body>
+<script src="../scripts/search.js"></script>
+
+</html>
