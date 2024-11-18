@@ -9,13 +9,15 @@ The project retrieves and displays information about a Roblox account using your
 ## Features ✨
 
 The profile viewer provides the following information:
-- **ID**: The unique identifier of the account.
-- **Username**: The account's username.
-- **Display Name**: The account's display name.
-- **Robux Balance**: The current amount of Robux in the account.
-- **Premium Status**: Indicates whether the account has an active premium subscription.
-- **Friends**: The total number of friends the account has.
-- **Followers**: The total number of followers the account has.
+- **ID**: A unique identifier assigned to the account.
+- **Username**: The account's chosen username.
+- **Display Name**: The name displayed on the account's profile.
+- **Friends**: The total number of friends associated with the account.
+- **Followers**: The total number of users following the account.
+- **Following**: The total number of users the account is following.
+- **Premium Status**: Indicates whether the account holds an active premium subscription.
+- **Robux Balance**: The current balance of Robux in the accountt.
+- **RAP (Recent Average Price)**: The current RAP value associated with the account
 
 ## Security 🔒
 
