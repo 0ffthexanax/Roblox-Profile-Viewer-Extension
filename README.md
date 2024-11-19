@@ -6,6 +6,10 @@ This is a simple, functional profile viewer for Roblox. While the current UI is 
 
 The project retrieves and displays information about a Roblox account using your `.ROBLOSECURITY` cookie. It is designed to be transparent, open-source, and easy to audit, ensuring that users can verify it is not a logger or malicious in any way.
 
+## Security 🔒
+
+This project is open-source, allowing users to inspect the code and verify that it contains no harmful components. The `.ROBLOSECURITY` cookie is used exclusively to fetch data from Roblox APIs and is never logged or stored.
+
 ## Features ✨
 
 The profile viewer provides the following information:
@@ -18,10 +22,6 @@ The profile viewer provides the following information:
 - **Premium Status**: Indicates whether the account holds an active premium subscription.
 - **Robux Balance**: The current balance of Robux in the accountt.
 - **RAP (Recent Average Price)**: The current RAP value associated with the account
-
-## Security 🔒
-
-This project is open-source, allowing users to inspect the code and verify that it contains no harmful components. The `.ROBLOSECURITY` cookie is used exclusively to fetch data from Roblox APIs and is never logged or stored.
 
 ## Updates 🆕
 
