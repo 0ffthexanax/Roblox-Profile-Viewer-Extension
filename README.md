@@ -2,6 +2,10 @@
 
 This is a simple, functional profile viewer for Roblox. While the current UI is minimal, it is designed to be efficient and will be improved in future updates to enhance both usability and appearance.
 
+## Preview 📸
+
+<img src="icons/image.png" alt="Preview image">
+
 ## Purpose 🎯
 
 The project retrieves and displays information about a Roblox account using your `.ROBLOSECURITY` cookie. It is designed to be transparent, open-source, and easy to audit, ensuring that users can verify it is not a logger or malicious in any way.
