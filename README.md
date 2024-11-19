@@ -10,19 +10,6 @@ The project retrieves and displays information about a Roblox account using your
 
 This project is open-source, allowing users to inspect the code and verify that it contains no harmful components. The `.ROBLOSECURITY` cookie is used exclusively to fetch data from Roblox APIs and is never logged or stored.
 
-## Features ✨
-
-The profile viewer provides the following information:
-- **ID**: A unique identifier assigned to the account.
-- **Username**: The account's chosen username.
-- **Display Name**: The name displayed on the account's profile.
-- **Friends**: The total number of friends associated with the account.
-- **Followers**: The total number of users following the account.
-- **Following**: The total number of users the account is following.
-- **Premium Status**: Indicates whether the account holds an active premium subscription.
-- **Robux Balance**: The current balance of Robux in the accountt.
-- **RAP (Recent Average Price)**: The current RAP value associated with the account
-
 ## Updates 🆕
 
 <details>
@@ -47,11 +34,18 @@ The profile viewer provides the following information:
   </ul>
 </details>
 
+## Features ✨
 
-## Future Plans 🚀
-
-- Improve the user interface for a more streamlined experience.
-- Add additional features and customization options.
+The profile viewer provides the following information:
+- **ID**: A unique identifier assigned to the account.
+- **Username**: The account's chosen username.
+- **Display Name**: The name displayed on the account's profile.
+- **Friends**: The total number of friends associated with the account.
+- **Followers**: The total number of users following the account.
+- **Following**: The total number of users the account is following.
+- **Premium Status**: Indicates whether the account holds an active premium subscription.
+- **Robux Balance**: The current balance of Robux in the accountt.
+- **RAP (Recent Average Price)**: The current RAP value associated with the account
 
 ## Setup ⚙️
 
