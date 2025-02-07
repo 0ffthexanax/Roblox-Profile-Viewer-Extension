@@ -2,10 +2,6 @@
 
 This is a simple, functional profile viewer for Roblox. While the current UI is minimal, it is designed to be efficient and will be improved in future updates to enhance both usability and appearance.
 
-## Preview 📸
-
-<img src="icons/image.png" alt="Preview image">
-
 ## Purpose 🎯
 
 The project retrieves and displays information about a Roblox account using your `.ROBLOSECURITY` cookie. It is designed to be transparent, open-source, and easy to audit, ensuring that users can verify it is not a logger or malicious in any way.
@@ -35,6 +31,24 @@ This project is open-source, allowing users to inspect the code and verify that 
   <summary>v1.0.3</summary>
   <ul>
     <li>Introduced a user search feature.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>v1.0.4</summary>
+  <ul>
+    <li>Enhanced Friends Section - Implemented a dropdown menu to list the user's friends.</li>
+    <li>Enhanced Followers Section - Implemented a dropdown menu to list the user's followers.</li>
+    <li>Enhanced Following Section - Implemented a dropdown menu to list the user's followings.</li>
+    <li>Refined RAP Feature - Implemented a dropdown menu to list the user's limited items.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>v1.0.5</summary>
+  <ul>
+    <li>Removed the search button and interface for a cleaner experience.</li>
+    <li>Updated the UI color scheme for a refreshed look.</li>
   </ul>
 </details>
 

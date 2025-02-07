@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(135deg, black, blue, black);
+  background: #232527;
   color: #f9f9f9;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -26,30 +26,6 @@ body {
   color: #fff;
   margin-right: 10px;
   cursor: default;
-}
-
-#search-button {
-  position: fixed;
-  padding: 10px 15px;
-  font-size: 16px;
-  background: linear-gradient(110deg, black, blue, black);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  margin-top: 130px;
-  margin-left: -136px;
-  cursor: pointer;
-}
-
-#search-button:hover {
-  background: linear-gradient(110deg, black, blue, black);
-  transform: scale(1.05);
-  box-shadow: 0 8px 12px rgba(255, 255, 255, 0.248);
-}
-
-#search-button:active {
-  transform: scale(0.95);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .image-button {
@@ -104,7 +80,7 @@ summary:hover {
 }
 
 .copy-button {
-  background: linear-gradient(110deg, black, blue, black);
+  background: #232527;
   color: white;
   border: none;
   border-radius: 5px;
@@ -117,7 +93,7 @@ summary:hover {
 }
 
 .copy-button:hover {
-  background: linear-gradient(110deg, black, blue, black);
+  background: #232527;
   transform: scale(1.05);
   box-shadow: 0 8px 12px rgba(255, 255, 255, 0.248);
 }
@@ -134,19 +110,6 @@ summary:hover {
   margin-top: 10px;
 }
 
-.cookie-value {
-  margin-top: 5px;
-  font-size: 0.85rem;
-  color: #fff;
-  word-wrap: break-word;
-  max-height: 60px;
-  overflow-y: auto;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  padding: 10px;
-  cursor: text;
-}
-
 .footer {
   text-align: center;
   font-size: 0.9rem;
@@ -155,6 +118,7 @@ summary:hover {
   background-color: #f1f1f1;
   width: 100%;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  cursor: default;
 }
 
 .footer a {
@@ -172,6 +136,15 @@ summary:hover {
   margin: 0;
 }
 
-.reg {
+.dropdown {
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: #fff;
+  word-wrap: break-word;
+  max-height: 150px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px;
   cursor: default;
 }
